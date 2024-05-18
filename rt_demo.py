@@ -3,6 +3,7 @@ import cv2 as cv
 import numpy as np
 import random as rng
 import queue
+import time 
 
 import sys
 from PySide2.QtCore import Qt, QTimer
@@ -83,16 +84,33 @@ class CircleWidget(QWidget):
 
 class CursorTracker:
 
-    def __init__(self):
-        scanner = ScreenScanner()
-        rectangles = scanner.scan()
+    def __init__(self,rate=5):
+        window_h = 3000
+        window_w = 3000
+        self.scanner = ScreenScanner()
+        rectangles = self.scanner.scan(bbox = (0,0,window_w,window_h))
+
         self.DSB = DynamicSpatialBuckets()
         self.DSB.loadData(rectangles)
         self.mouse = mouse.Controller()
 
+        self.start = time.time()
+        self.rate = rate
+
+    def rescan(self,x,y,w,h):
+        print(x,y,w,h)
+        rectangles = self.scanner.scan(bbox = (x,y,w,h))
+        self.DSB = DynamicSpatialBuckets()
+        self.DSB.loadData(rectangles)
 
     def getPos(self):
+
         x,y = self.mouse.position
+        print(x,y)
+        if((time.time() - self.start) > self.rate):
+            self.start = time.time()
+            self.rescan(x,y,x+3000,y+3000)
+
         rectangles = self.DSB.getBucket([x,y])
         closest_distance = 9999
         closest_rectangle = None
@@ -151,18 +169,19 @@ class ScreenScanner:
         self.thresh = 100
         pass
 
-    def scan(self):
-        screenshot = ImageGrab.grab()
+    def scan(self,bbox = None):
+        screenshot = ImageGrab.grab(bbox = bbox)
         screenshot.save("__tmp.png")
         src = cv.imread("__tmp.png")
-        ret = self.scanner.scan(src, self.thresh)
+        # TODO: add x and y offest to the result rectangles
+        ret = self.scanner.scan(src, self.thresh, bbox[0], bbox[1])
         return ret
 class IconScanner:
 
     def __init__(self):
         pass
 
-    def scan(self,src : MatLike,val: int) -> None:
+    def scan(self,src : MatLike,val: int, x : int = 0, y : int = 0) -> None:
         # accept an input image and convert it to grayscale, and blur it
         gray_scale_image = grayscale_blur(src)
 
@@ -171,6 +190,8 @@ class IconScanner:
 
         # group the rectangles from this step
         grouped_rects = group_rects(bound_rect, 0, src.shape[1])
+
+        grouped_rects = [(rect[0]+x,rect[1]+y,rect[2],rect[3]) for rect in grouped_rects]
         return grouped_rects
     
 if __name__ == "__main__":
