@@ -153,7 +153,7 @@ def canny_detection(gray_scale_image=None, **kwargs):
 
     canny_output = cv.Canny(gray_scale_image, min_threshold, max_threshold)
 
-    _, contours, _ = cv.findContours(canny_output, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv.findContours(canny_output, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
     contours_poly = [None] * len(contours)
     bound_rect = [None] * len(contours)
