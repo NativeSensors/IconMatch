@@ -98,18 +98,18 @@ class CursorTracker:
         self.rate = rate
 
     def rescan(self,x,y,w,h):
-        print(x,y,w,h)
-        rectangles = self.scanner.scan(bbox = (x,y,w,h))
+        rectangles = self.scanner.scan(bbox = (x,y,x+w,y+h))
         self.DSB = DynamicSpatialBuckets()
         self.DSB.loadData(rectangles)
 
     def getPos(self):
 
         x,y = self.mouse.position
-        print(x,y)
         if((time.time() - self.start) > self.rate):
             self.start = time.time()
-            self.rescan(x,y,x+3000,y+3000)
+            width = 3000
+            height = 3000
+            self.rescan(x-width/2,y-height/2,width,height)
 
         rectangles = self.DSB.getBucket([x,y])
         closest_distance = 9999
