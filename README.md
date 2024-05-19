@@ -80,6 +80,10 @@ detected_rectangles = scanner.scan(bbox = (x,y,w,h))
 
 ```
 
+RealTime demo:
+```bash
+python rt_demo.py
+```
 
 ## Key Features
 
@@ -91,18 +95,18 @@ detected_rectangles = scanner.scan(bbox = (x,y,w,h))
 The current available APIs encompass what your image processing pipeline should contain. Both APIs are 
 currently still experimental as I learn more about OpenCV and optimize code.
 
-### canny_detection(gray_scale_image, min_threshold)
-> Performs canny detection when given a gray scale image and a minimum threshold for hysteresis. Returns bounding rectangles of points of interest.
+### ImageScanner
+> Performs Canny detection on passed images and group overlapping rectangles 
 
-### group_rects(bound_rectangles, initial_scanning_range, final_scanning_range)
-> Groups rectangles that are overlapping in two-dimensional space and returns their conglomerate components.
+### ScreenScanner
+> Scans your display, take screnshoots and call ImageScanners
 
 ## Roadmap
 
 - [x] Detect regions of interest with moderate accuracy
 - [x] Detect candidate region based on proximity
-- [ ] Detect icon-like objects on the screen
-- [ ] Context provision into regions of interest
+- [x] Detect icon-like objects on the screen
+- [?] Context provision into regions of interest
 
 
 ## Contributing
@@ -121,21 +125,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Luis Zugasti - [@luis\_\_zugasti](https://twitter.com/luis__zugasti)
+Original Creator: Luis Zugasti - [@luis\_\_zugasti](https://twitter.com/luis__zugasti)
+Current Maintainer: Piotr Walas - [@Piotr\_\_Walas](https://twitter.com/PW4ltz)
 
-Project Link: [https://github.com/luiszugasti/IconMatch](https://github.com/luiszugasti/IconMatch)
-
-[contributors-shield]: https://img.shields.io/github/contributors/luiszugasti/IconMatch.svg?style=flat-square
-[contributors-url]: https://github.com/luiszugasti/IconMatch/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/luiszugasti/IconMatch.svg?style=flat-square
-[forks-url]: https://github.com/luiszugasti/IconMatch/network/members
-[stars-shield]: https://img.shields.io/github/stars/luiszugasti/IconMatch.svg?style=flat-square
-[stars-url]: https://github.com/luiszugasti/IconMatch/stargazers
-[issues-shield]: https://img.shields.io/github/issues/luiszugasti/IconMatch.svg?style=flat-square
-[issues-url]: https://github.com/luiszugasti/IconMatch/issues
-[license-shield]: https://img.shields.io/github/license/luiszugasti/IconMatch.svg?style=flat-square
-[license-url]: https://github.com/luiszugasti/IconMatch/blob/main/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/luiszugasti
-[product-screenshot1]: https://i.imgur.com/Q4Rm7M6.png
-[product-screenshot2]: https://i.imgur.com/8NZGOa7.gif
+Project Link: [https://github.com/NativeSensors/IconMatch](https://github.com/NativeSensors/IconMatch)
