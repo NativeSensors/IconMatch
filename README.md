@@ -35,15 +35,9 @@ This is part of the Hands Free Computing project. Built with [OpenCV 3.12](https
 
 ## Installation 
 
-1. Clone the repo and open it locally:
+1. Install from PyPI:
 ```
-$ git clone https://github.com/luiszugasti/IconMatch/
-$ cd IconMatch
-```
-
-2. Install the [requirements](https://github.com/luiszugasti/IconMatch/blob/main/requirements.txt):
-```
-$ pip install -r requirements.txt
+$ pip install iconmatch
 ```
 
 ## Usage
