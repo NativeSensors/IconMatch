@@ -7,13 +7,13 @@
 </p>
 
 <p align="center">
-  <a href="https://luiszugasti.me">
+  <a href="">
     <img src="https://raw.githubusercontent.com/luiszugasti/IconMatch/main/images/screenshot.png" alt="Showcasing bounding boxes and original image"/>
   </a>
-  <a href="https://luiszugasti.me">
+  <a href="">
     <img src="https://raw.githubusercontent.com/luiszugasti/IconMatch/main/images/nearest_box.gif" alt="Showcasing candidate boxes functionality"/>
   </a>
-  <a href="https://luiszugasti.me">
+  <a href="">
     <img src="https://github.com/NativeSensors/IconMatch/assets/40773550/ebc5aa2e-50b3-464a-a033-7c54b7615eeb" alt="Showcasing realtime demo"/>
   </a>
 </p>
@@ -134,6 +134,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Original Creator: Luis Zugasti - [@luis\_\_zugasti](https://twitter.com/luis__zugasti)
+Original Creator blog: [https://luiszugasti.me](https://luiszugasti.me)
 
 Current Maintainer: Piotr Walas - [@Piotr\_\_Walas](https://twitter.com/PW4ltz)
 
