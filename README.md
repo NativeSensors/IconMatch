@@ -49,35 +49,37 @@ You can use the functions as shown in [demo.py](https://github.com/luiszugasti/I
 
 In the below example, the main set of functions is called within a callback function, as this allows the threshold value
 to be controlled from a GUI in OpenCV.
+
+Image Scanner:
+
 ```python
 import cv2 as cv
 
-from icondetection.demo.demo import render_rectangles, candidate_rectangle_demo
-from icondetection.box import grayscale_blur, canny_detection, group_rects
+import IconMatch.IconMatch from ImageScanner
 
 src = cv.imread("source to your image file")
+scanner = ImageScanner(thersh = 100)
 
-def threshold_callback(val):
-    """
-    Takes a value of threshold for the canny edge detector and finds the
-    bounding rectangles of appropriate edges within an image.
-    """
+detected_rectangles = scanner.scan(src)
+# list of [(x,y,w,h),(x,y,w,h), ... , (x,y,w,h)]
 
-    # accept an input image and convert it to grayscale, and blur it
-    gray_scale_image = grayscale_blur(src)
-
-    # determine the bounding rectangles from canny detection
-    _, bound_rect = canny_detection(gray_scale_image, min_threshold=val)
-
-    # group the rectangles from this step - variable is global for demo purposes
-    global grouped_rects
-    grouped_rects = group_rects(bound_rect, 0, src.shape[1])
-
-    # (for display purposes) use the provided rectangles to display in your program
-    render_rectangles(grouped_rects, src.copy(), "Grouped Rectangles", desired_color=(36, 9, 14))
-    render_rectangles(bound_rect, src.copy(), "Original Rectangles", desired_color=(96, 9, 104))
-    candidate_rectangle_demo()
 ```
+
+Screen Scanner:
+
+```python
+import cv2 as cv
+
+import IconMatch.IconMatch from ScreenScanner
+
+src = cv.imread("source to your image file")
+scanner = ScreenScanner(thersh = 100)
+
+detected_rectangles = scanner.scan(bbox = (x,y,w,h))
+# list of [(x,y,w,h),(x,y,w,h), ... , (x,y,w,h)]
+
+```
+
 
 ## Key Features
 

@@ -2,8 +2,8 @@ import argparse
 import random as rng
 import cv2 as cv
 
-from icondetection.box import grayscale_blur, canny_detection, group_rects, candidate_rectangle
-from icondetection.rectangle import Rectangle
+from IconMatch.box import grayscale_blur, canny_detection, group_rects, candidate_rectangle
+from IconMatch.rectangle import Rectangle
 
 
 def closest_rectangle_handler(event: int, x: int, y: int, flags, params) -> None:
@@ -99,7 +99,7 @@ def threshold_callback(val: int) -> None:
 if __name__ == "__main__":
     rng.seed(12345)
     parser = argparse.ArgumentParser(
-        description="Sample showcase of IconDetection."
+        description="Sample showcase of IconMatch."
     )
 
     parser.add_argument("--input", help="Path to input image.")

@@ -1,8 +1,8 @@
 import unittest
 
-import icondetection.rectangle as r
-from icondetection import box
-from icondetection.weighted_quick_unionUF import WeightedQuickUnionUF as uf
+import IconMatch.rectangle as r
+from IconMatch import box
+from IconMatch.weighted_quick_unionUF import WeightedQuickUnionUF as uf
 
 
 class TestSIFT(unittest.TestCase):

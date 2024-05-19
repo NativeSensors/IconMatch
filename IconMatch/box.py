@@ -3,8 +3,8 @@ import heapq
 import cv2 as cv
 from typing import List
 
-from icondetection.rectangle import Rectangle
-from icondetection.weighted_quick_unionUF import WeightedQuickUnionUF as uf
+from IconMatch.rectangle import Rectangle
+from IconMatch.weighted_quick_unionUF import WeightedQuickUnionUF as uf
 
 
 def containing_rectangle(rects: List[Rectangle], query_point: tuple) -> Rectangle or None:

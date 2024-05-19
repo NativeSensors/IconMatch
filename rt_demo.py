@@ -8,7 +8,7 @@ from PySide2.QtWidgets import QApplication, QWidget
 
 from pynput import mouse
 
-from icondetection.IconMatch import ScreenScanner 
+from IconMatch.IconMatch import ScreenScanner 
 
 class CircleWidget(QWidget):
     def __init__(self):

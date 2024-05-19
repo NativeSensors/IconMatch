@@ -1,7 +1,7 @@
 from PIL import ImageGrab
 from pynput import mouse
-import icondetection
-from icondetection.helpers import run_sift, save_img
+import IconMatch
+from IconMatch.helpers import run_sift, save_img
 
 
 def main():
