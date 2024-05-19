@@ -13,7 +13,7 @@ exclude = [
 ]
 
 [project]
-name = "eyeGestures"
+name = "IconMatch"
 version = "0.0.1"
 authors = [
   { name="Piotr Walas", email="piotr.walas@eyegestures.com" },
@@ -23,12 +23,12 @@ maintainers = [
 ]
 description = "Package for detecting Icons from images or screen"
 readme = "README.md"
-license = {file = "LICENSE"}
+license = {file = "LICENSE.txt"}
 requires-python = ">=3.8"
 keywords = ["IconMatch", "NativeSensors", "Icon", "scanning"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 

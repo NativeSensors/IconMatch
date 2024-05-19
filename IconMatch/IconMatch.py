@@ -1,7 +1,6 @@
 import cv2 as cv
 
 from PIL import ImageGrab
-from cv2.typing import MatLike
 from IconMatch.box import grayscale_blur, canny_detection, group_rects
 
 class ScreenScanner:
@@ -82,7 +81,7 @@ class ImageScanner:
         """
         self.thresh = thresh
 
-    def scan(self, src: MatLike) -> list:
+    def scan(self, src) -> list:
         """
         Processes an input image to detect rectangles.
 
