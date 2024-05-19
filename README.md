@@ -65,11 +65,8 @@ detected_rectangles = scanner.scan(src)
 Screen Scanner:
 
 ```python
-import cv2 as cv
-
 import IconMatch.IconMatch from ScreenScanner
 
-src = cv.imread("source to your image file")
 scanner = ScreenScanner(thersh = 100)
 
 detected_rectangles = scanner.scan(bbox = (x,y,w,h))
