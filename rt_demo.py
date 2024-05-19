@@ -1,21 +1,14 @@
-import argparse
-import cv2 as cv
 import numpy as np
-import random as rng
-import queue
 import time 
 
 import sys
 from PySide2.QtCore import Qt, QTimer
 from PySide2.QtGui import QPainter, QColor, QBrush, QPen
-from PySide2.QtWidgets import QApplication, QMainWindow, QWidget
+from PySide2.QtWidgets import QApplication, QWidget
 
 from pynput import mouse
-from PIL import ImageGrab
-from cv2.typing import MatLike
-from icondetection.box import grayscale_blur, canny_detection, group_rects, candidate_rectangle
-from icondetection.rectangle import Rectangle
 
+from icondetection.IconMatch import ScreenScanner 
 
 class CircleWidget(QWidget):
     def __init__(self):
@@ -161,38 +154,6 @@ class DynamicSpatialBuckets:
             ret_bucket = self.buckets[index_x][index_y]
 
         return ret_bucket
-class ScreenScanner:
-
-    def __init__(self):
-
-        self.scanner = IconScanner()
-        self.thresh = 100
-        pass
-
-    def scan(self,bbox = None):
-        screenshot = ImageGrab.grab(bbox = bbox)
-        screenshot.save("__tmp.png")
-        src = cv.imread("__tmp.png")
-        # TODO: add x and y offest to the result rectangles
-        ret = self.scanner.scan(src, self.thresh, bbox[0], bbox[1])
-        return ret
-class IconScanner:
-
-    def __init__(self):
-        pass
-
-    def scan(self,src : MatLike,val: int, x : int = 0, y : int = 0) -> None:
-        # accept an input image and convert it to grayscale, and blur it
-        gray_scale_image = grayscale_blur(src)
-
-        # determine the bounding rectangles from canny detection
-        _, bound_rect = canny_detection(gray_scale_image, min_threshold=val)
-
-        # group the rectangles from this step
-        grouped_rects = group_rects(bound_rect, 0, src.shape[1])
-
-        grouped_rects = [(rect[0]+x,rect[1]+y,rect[2],rect[3]) for rect in grouped_rects]
-        return grouped_rects
     
 if __name__ == "__main__":
     app = QApplication(sys.argv)
