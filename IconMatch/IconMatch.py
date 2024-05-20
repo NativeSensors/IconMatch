@@ -32,7 +32,7 @@ class ScreenScanner:
         """
         self.scanner.updateThresh(thresh)
 
-    def scan(self, bbox=None, beforeScreenshot = lambda x: x , afterScreenshot = lambda x: x ):
+    def scan(self, bbox=None, beforeScreenshot = lambda : None , afterScreenshot = lambda : None):
         """
         Captures a screenshot, processes it to detect rectangles, and adjusts
         the coordinates based on the bounding box.
@@ -46,6 +46,7 @@ class ScreenScanner:
         beforeScreenshot()
         screenshot = ImageGrab.grab(bbox=bbox)
         afterScreenshot()
+
         screenshot.save("__tmp.png")
         src = cv.imread("__tmp.png")
         # TODO: add x and y offset to the result rectangles
