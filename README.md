@@ -21,17 +21,7 @@
 
 This is part of the Hands Free Computing project. Built with [OpenCV 3.12](https://opencv.org) and [Python 3.8](https://python.org).
 
-### 💜 Sponsors: 
-
-```
-Sponsor us and we can add your link, banner or other promo materials!
-```
-<!-- POLAR type=ads id=eizdelwu subscription_benefit_id=bb272b6d-f698-44e3-a417-36a6fa203bbe width=240 height=100 -->
-
-
-<!-- POLAR-END id=eizdelwu -->
-
-### 💜 Follow NativeSensors: 
+### 💜 Support NativeSensors: 
 
 <a href="https://polar.sh/NativeSensors"><picture><source media="(prefers-color-scheme: dark)" srcset="https://polar.sh/embed/subscribe.svg?org=NativeSensors&label=Subscribe&darkmode"><img alt="Subscribe on Polar" src="https://polar.sh/embed/subscribe.svg?org=NativeSensors&label=Subscribe"></picture></a>
 
