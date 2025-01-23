@@ -19,7 +19,9 @@
 </p>
 
 
-This is part of the Hands Free Computing project. Built with [OpenCV 3.12](https://opencv.org) and [Python 3.8](https://python.org).
+This is part of the Hands Free Computing project made by @luis__zugasti . Built with [OpenCV 3.12](https://opencv.org) and [Python 3.8](https://python.org).
+
+As project was dead for 5years and We found use for it, we have decided to maintain its fork.
 
 ### 💜 Support NativeSensors: 
 
