@@ -58,7 +58,7 @@ Image Scanner:
 ```python
 import cv2 as cv
 
-import IconMatch.IconMatch from ImageScanner
+from IconMatch.IconMatch import ImageScanner
 
 src = cv.imread("source to your image file")
 scanner = ImageScanner(thersh = 100)
@@ -71,7 +71,7 @@ detected_rectangles = scanner.scan(src)
 Screen Scanner:
 
 ```python
-import IconMatch.IconMatch from ScreenScanner
+from IconMatch.IconMatch import ScreenScanner
 
 scanner = ScreenScanner(thersh = 100)
 
